@@ -8,7 +8,6 @@
 '''
 from typing import List
 
-
 def quick_sort(nums: List[int], start=None, end=None):
     # quick_sort(nums)
     start = 0 if start is None else start
