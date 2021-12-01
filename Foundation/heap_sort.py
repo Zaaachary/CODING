@@ -31,11 +31,8 @@ def heap_sort_k(nums: List, k):
         result = heapq.heappop(heap)
     return -result
 
-
-
 if __name__ == "__main__":
     import random
-        
     nums = [random.randint(0,20) for _ in range(20)]
     print(f'origin nums: {nums}')
     sorted_nums = heapsort(nums)
