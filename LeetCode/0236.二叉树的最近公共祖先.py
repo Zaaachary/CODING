@@ -34,7 +34,7 @@ class TreeNode:
         while target < len(node_list):
             node_stack.append(target)
             target = target * 2
-        
+        # TODO 树也需要一个堆栈
         last_visit = -1
         last_visit_tree = None
         while len(node_stack) != 0:
