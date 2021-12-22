@@ -16,7 +16,7 @@ class TreeNode:
         self.right = None
     
     @classmethod
-    def build_tree(cls, node_list:List):
+    def build_tree_from_list(cls, node_list:List):
         """
         后序遍历 node_list 遍历过程中建树
         """
@@ -66,17 +66,59 @@ def X_order_traverse(p: 'TreeNode'):
         X_order_traverse(p.right)
         # post order visit(p)
 
-
 def pre_order_traverse(root: 'TreeNode'):
     '''迭代 先序遍历: 根入栈;出栈（访问;右左依次入栈）'''
     stack = []
+    
     if root:
         stack.append(root)
-    
+
     while len(stack) != 0:
         p = stack.pop()
-        # visit(p)
+        print(p.value)  # visit(p)
         if p.right:
             stack.append(p.right)
         if p.left:
             stack.append(p.left)
+
+def in_order_traverse(root: 'TreeNode'):
+    '''迭代 中序遍历: 左链入栈; 出栈访问，有右则右子左链入栈'''
+    stack = []
+    
+    while root:
+        stack.append(root)
+        root = root.left
+
+    while len(stack) != 0:
+        p = stack.pop()
+        print(p.value)  # visit(p)
+        p = p.right
+        while p:
+            stack.append(p)
+            p = p.left
+
+
+def post_order_traverse(root: 'TreeNode'):
+    '''迭代 先序遍历: 根入栈;出栈（访问;右左依次入栈）'''
+    stack = []
+    previous = None
+    
+    while root:
+        stack.append(root)
+        root = root.left
+
+    while len(stack) != 0:
+        p = stack[-1]
+
+        if p.right and previous != p.right:
+            # 有未访问过的右子树
+            p = p.right
+            while p:
+                stack.append(p)
+                p = p.left
+        else:
+            # 无右子树或右子树已访问
+            p = stack.pop()
+            print(p.value)  # visit(p)
+            previous = p
+
