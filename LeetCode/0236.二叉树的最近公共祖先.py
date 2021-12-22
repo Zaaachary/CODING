@@ -21,7 +21,11 @@ class TreeNode:
         self.val = x
         self.left = None
         self.right = None
+<<<<<<< HEAD
     
+=======
+        
+>>>>>>> 7c53f016f25f99c08955cd1ee2a4f3e60d2f0f95
 
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
