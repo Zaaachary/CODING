@@ -14,6 +14,7 @@
 '''
 
 from typing import List
+from collections import Counter
 
 
 class TreeNode:
@@ -22,18 +23,56 @@ class TreeNode:
         self.left = None
         self.right = None
         
-
 class Solution:
     def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
         """
+        48ms 99.29%
+        https://leetcode-cn.com/problems/lowest-common-ancestor-of-a-binary-tree/solution/c-jing-dian-di-gui-si-lu-fei-chang-hao-li-jie-shi-/
+        
+        递归目标:
+        - 当前树存在 pq 则返回公共祖先
+        - 仅存在一个，则返回存在的一个节点
+        - 都不存在则返回 None
+
+        """
+        if not root:
+            return None
+        
+        if root == p or root == q:
+            # 当前节点为 p 或 q
+            return root
+        else:
+            left = self.lowestCommonAncestor(root.left, p, q)
+            right = self.lowestCommonAncestor(root.right, p, q)
+
+            if not left:
+                # 左侧无p无q，则右侧为返回的公共祖先
+                return right
+            elif not right:
+                # 右侧无p无q，则左侧为返回的公共祖先
+                return left
+            else:
+                # p 和 q 在当前节点两侧，当前节点为最近的公共祖先
+                return root
+
+
+class Solution1:
+    def lowestCommonAncestor(self, root: 'TreeNode', p: 'TreeNode', q: 'TreeNode') -> 'TreeNode':
+        """
+        64ms  64.36%
         后续遍历，找到 p 时记录堆栈祖先，找到 q 时记录堆栈祖先，通过比较堆栈找到最近祖先。
         """
-        pass
+        path1 = Solution.post_traverse_find(root, p)
+        path2 = Solution.post_traverse_find(root, q)
+        count = Counter(path1 + path2)
+        for node in path1:
+            if count[node] == 2:
+                return node
 
     @staticmethod
-    def post_traverse(root):
+    def post_traverse_find(root, target):
         node_stack = []
-        last_visit = None
+        last_visit = ''
         while root:
             node_stack.append(root)
             root = root.left
@@ -41,7 +80,11 @@ class Solution:
         while len(node_stack) != 0:
             # node 无左孩子或左孩子已经被访问
             node = node_stack[-1]
-            if node.right and last_visit == node.left:
+            if node == target:
+                # print(node.val)
+                return node_stack
+
+            if node.right and last_visit != node.right:
                 # 有右孩子，且左孩子刚被访问
                 node = node.right
                 while node:
@@ -50,8 +93,7 @@ class Solution:
                     node = node.left
             else:
                 # 没有右孩子，或有右孩子已经被访问
-                last_visit = node_stack.pop(0)
-                print(last_visit.data)
+                last_visit = node_stack.pop()
                 
 if __name__ == "__main__":
     # TreeNode.build_tree([1,2,3])

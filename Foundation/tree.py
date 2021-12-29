@@ -4,7 +4,7 @@
 @Time    :   2021/12/13 22:49:08
 @Author  :   Zhifeng Li
 @Contact :   zaaachary_li@163.com
-@Desc    :   
+@Desc    :   TODO
 '''
 from typing import List
 
@@ -35,7 +35,6 @@ class TreeNode:
             right = node*2 + 1
             if right < len(node_list) and node_list[right] != None and last_visit == right-1:
                 # 存在右节点且未被访问，上次访问的为该节点的左孩子
-                
                 target = right
                 while target < len(node_list):
                     node_stack.append(target)
@@ -101,7 +100,7 @@ def in_order_traverse(root: 'TreeNode'):
 def post_order_traverse(root: 'TreeNode'):
     '''迭代 先序遍历: 根入栈;出栈（访问;右左依次入栈）'''
     stack = []
-    previous = None
+    last_visit = None
     
     while root:
         stack.append(root)
@@ -110,7 +109,7 @@ def post_order_traverse(root: 'TreeNode'):
     while len(stack) != 0:
         p = stack[-1]
 
-        if p.right and previous != p.right:
+        if p.right and last_visit != p.right:
             # 有未访问过的右子树
             p = p.right
             while p:
@@ -118,7 +117,6 @@ def post_order_traverse(root: 'TreeNode'):
                 p = p.left
         else:
             # 无右子树或右子树已访问
-            p = stack.pop()
-            print(p.value)  # visit(p)
-            previous = p
+            last_visit = stack.pop()
+            print(last_visit.value)  # visit(p)
 
