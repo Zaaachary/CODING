@@ -15,7 +15,7 @@ class Solution:
             elif num > target:
                 nums.insert(index, target)
                 return index
-            elif num == target:
+            else:
                 return index
         else:
             # 位置在最尾部
