@@ -21,16 +21,36 @@ from typing import List
 
 class Solution:
     """
-    环状替换   TODO
+    环状替换   数学成分 难点
+    36ms 88.23%
     """
+    @staticmethod
+    def computeGCD(x, y):
+        
+        while(y):
+            x, y = y, x % y
+        
+        return x
+
     def rotate(self, nums: List[int], k: int) -> None:
         """
         Do not return anything, modify nums in-place instead.
         """
-        nums_copy = nums[:]
-        for index, num in enumerate(nums_copy):
-            insert_idx = (index + k) % len(nums)
-            nums[insert_idx] = nums_copy[index]
+        n = len(nums)
+        k = k % n
+        count = Solution.computeGCD(k, n)
+        for start in range(0, count):
+            current = start
+            prev = nums[start]
+            
+            next = (current + k) % n
+            nums[next], prev = prev, nums[next]
+            current = next
+            while start!= current:
+                next = (current + k) % n
+                nums[next], prev = prev, nums[next]
+                current = next
+
         
 
 
