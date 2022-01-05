@@ -13,7 +13,7 @@
 
 你可以假设每个输入 只对应唯一的答案 ，而且你 不可以 重复使用相同的元素。
 
-示例 1：
+示例 1:
 
 输入：numbers = [2,7,11,15], target = 9
 输出：[1,2]
@@ -27,10 +27,7 @@ from typing import List
 
 class Solution:
     '''
-    32 ms
-, 在所有 Python3 提交中击败了
-87.19%
-的用户
+    32 ms, 在所有 Python3 提交中击败了87.19%的用户
     '''
     def twoSum(self, numbers: List[int], target: int) -> List[int]:
         left, right = 0, len(numbers) - 1
