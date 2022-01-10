@@ -14,6 +14,9 @@
 from typing import List
 
 class Solution:
+    '''
+    执行用时： 36 ms , 在所有 Python3 提交中击败了 78.89% 的用户
+    '''
     def search(self, nums: List[int], target: int) -> int:
         left, right = 0, len(nums)-1
         while left <= right:
