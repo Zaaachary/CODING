@@ -17,13 +17,15 @@ from typing import List
 
 class Solution:
     '''
-    52ms  68.17%
+    28ms  99.61%
     '''
     def combine(self, n: int, k: int) -> List[List[int]]:
-        # import pdb; pdb.set_trace()
-        start, end = 1, n
-        result_list = Solution.combine_part(start, end, k)
-        return result_list
+        if k <= 0 or n < k:
+            return []
+        else:
+            start, end = 1, n
+            result_list = Solution.combine_part(start, end, k)
+            return result_list
     
     @staticmethod
     def combine_part(start, end, k):
