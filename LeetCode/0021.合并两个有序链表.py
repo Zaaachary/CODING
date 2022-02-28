@@ -39,6 +39,7 @@ class Solution:
         return l3.next
         
     def mergeTwoLists2(self, l1, l2):
+        # 40ms 43.62%
         # 递归且避免 长链逐个添加
         if l1 is None:
             return l2

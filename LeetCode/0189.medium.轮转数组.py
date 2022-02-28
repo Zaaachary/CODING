@@ -73,6 +73,7 @@ class Solution_2:
     """
     数组翻转
     时间 O(n)  空间O(1)
+    整个数组翻转，然后0~move翻转，move到尾翻转
     """
     def rotate(self, nums: List[int], k: int) -> None:
         move = k % len(nums)    # 明确要 move 的实际长度
