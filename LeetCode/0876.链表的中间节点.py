@@ -15,6 +15,18 @@ class ListNode:
         self.val = val
         self.next = next
 
+class Solution_new:
+    '''
+    2022/0228  36ms 48%
+    '''
+    def middleNode(self, head: ListNode) -> ListNode:
+        fast, slow = head, head
+        while fast and fast.next:
+            fast = fast.next.next
+            slow = slow.next
+        return slow
+
+
 class Solution:
     def middleNode(self, head: ListNode) -> ListNode:
         """

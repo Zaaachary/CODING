@@ -16,7 +16,7 @@ class ListNode:
 
 class Solution:
     '''
-    32ms 击败 75.12%
+    32ms 击败 84.15%
     fake head node + slow fast double ptr
     '''
     def removeNthFromEnd(self, head: ListNode, n: int) -> ListNode:
