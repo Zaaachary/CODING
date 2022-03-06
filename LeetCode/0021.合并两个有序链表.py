@@ -21,7 +21,7 @@ class ListNode:
 
 class Solution:
     def mergeTwoLists(self, l1: ListNode, l2: ListNode) -> ListNode:
-        # 32ms 98.35%
+        # 32ms 98.35%  迭代
         l3 = ListNode()
         p3 = l3
         while l1 and l2:
