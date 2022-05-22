@@ -22,7 +22,7 @@
 */
 
 class Solution_1 {
-    /* */
+    /* 排序方法*/
 public:
     bool containsDuplicate(vector<int>& nums) {
         sort(nums.begin(), nums.end());
