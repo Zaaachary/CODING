@@ -36,6 +36,7 @@ class Solution:
 
 class Solution_1:
     '''
+    执行用时： 32 ms , 在所有 Python3 提交中击败了 94.34% 的用户 内存消耗： 14.8 MB , 在所有 Python3 提交中击败了 43.37% 的用户
     与&; 或|; 异或 ^; 取反 ~; 左右移<< >>
     '''
     def reverseBits(self, n: int) -> int:

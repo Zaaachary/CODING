@@ -4,8 +4,17 @@
 from typing import List
 
 class Solution:
+
+    def sortedSquares(self, nums: List[int]) -> List[int]:
+        
+        nums = [value ** 2 for value in nums]
+        nums.sort()
+        return nums
+
+
+class Solution_1:
     """
-    找到分界点后归并
+    找到 负数0分界点后从中间先两侧归并
     """
     def sortedSquares(self, nums: List[int]) -> List[int]:
         length = len(nums)
@@ -35,9 +44,10 @@ class Solution:
         return result
 
 
-class Solution_slow:
+class Solution_0:
     '''
-    96ms  20%
+    平方后从左右两部分向中间归并 better
+    执行用时： 68 ms , 在所有 Python3 提交中击败了 62.45% 的用户 内存消耗： 16.4 MB , 在所有 Python3 提交中击败了 90.91% 的用户
     '''
     def sortedSquares(self, nums: List[int]) -> List[int]:
         for index, num in enumerate(nums):
