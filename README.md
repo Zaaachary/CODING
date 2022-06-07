@@ -4,6 +4,8 @@
 
 [力扣 20天算法刷题 计划](https://leetcode-cn.com/study-plan/algorithms/?progress=2mj8onm)
 
+[剑指 Offer 计划](https://leetcode.cn/study-plan/lcof/?progress=8t5w98t)
+
 [代码随想录](https://www.programmercarl.com/)
 
 ## 1 数据结构
@@ -27,6 +29,8 @@
 
 - 0704 easy 最基本形式
 - 0278 easy 第一个错误版本(变体)
+- 0033 medium 搜索旋转排序数组
+- 0034 medium 在排序数组中查找元素的第一个和最后一个位置；两次二分查找，分别查询第一个大于target的元素以及第一个等于target的元素
 - 0035 easy 搜索插入位置  经典应用，目标为找到第一个大于等于 target 的位置，通过中间变量记录
 - 0004 hard 寻找两个正序数组中的中位数  (寻找两个数组的第k个数)
 
