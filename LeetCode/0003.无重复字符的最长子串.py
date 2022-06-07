@@ -22,6 +22,30 @@ class Solution:
         # print(s[f:r+1])
         return ans
 
+class Solution_1:
+    '''
+    60ms 73.41%
+    '''
+    def lengthOfLongestSubstring(self, s: str) -> int:
+        max_len, cur_len = 0, 0
+        current_dict = {}   # 0: already appear; 1&None: not appear
+        left, right = 0, 0
+        while right < len(s):
+            right_ch = s[right]
+            if current_dict.get(right_ch, 1):
+                current_dict[right_ch] = 0
+                cur_len += 1
+                max_len = max(max_len, cur_len)
+            else:
+                while s[left] != right_ch:
+                    current_dict[s[left]] = 1
+                    left += 1
+                    cur_len -= 1
+                left += 1
+
+            right += 1
+        return max_len
+            
 
 if __name__ == "__main__":
     S = Solution()

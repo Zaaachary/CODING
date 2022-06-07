@@ -101,7 +101,7 @@ def post_order_traverse(root: 'TreeNode'):
     '''迭代 先序遍历: 根入栈;出栈（访问;右左依次入栈）'''
     stack = []
     last_visit = None
-    
+      
     while root:
         stack.append(root)
         root = root.left

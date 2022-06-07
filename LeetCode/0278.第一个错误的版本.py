@@ -12,6 +12,9 @@
 """
 
 class Solution:
+    '''
+    执行用时： 32 ms , 在所有 Python3 提交中击败了 87.38% 的用户 内存消耗： 14.9 MB , 在所有 Python3 提交中击败了 31.47% 的用户
+    '''
     def firstBadVersion(self, n):
         left, right = 1, n
         first =  n + 1
