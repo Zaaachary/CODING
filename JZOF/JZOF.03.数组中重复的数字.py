@@ -69,7 +69,22 @@ class Solution:
                     nums[nums[idx]], nums[idx] = nums[idx], nums[nums[idx]]
 
 
-
+class Solution:
+    def findRepeatNumber(self, nums: List[int]) -> int:
+        '''
+        执行用时： 36 ms , 在所有 Python3 提交中击败了 96.16% 的用户 内存消耗： 23.7 MB , 在所有 Python3 提交中击败了 90.38% 的用户
+        '''
+        index = 0
+        while index < len(nums):
+            current = nums[index]
+            if current != index:
+                if nums[current] != current:
+                    nums[index], nums[current] = nums[current], current
+                else:
+                    return current
+            else:
+                index += 1
+        return -1
 
 if __name__ == "__main__":
     S = Solution()

@@ -20,7 +20,17 @@ class Solution:
             # num_list.pop(current)
         return num_list[0]
     
-    def lastRemaining2(self, n: int, m: int) -> int:
+    def lastRemaining_dd(self, n: int, m: int) -> int:
+        '''
+        执行用时： 64 ms , 在所有 Python3 提交中击败了 95.19% 的用户 内存消耗： 14.9 MB , 在所有 Python3 提交中击败了 60.95% 的用户
+        '''
+        f = 0
+        for i in range(2, n + 1):
+            f = (m + f) % i # (m % i + f) % i   迭代推测 i + 1 的情况
+        return f
+
+
+    def lastRemaining_dg(self, n: int, m: int) -> int:
         """
         我们知道，从 f(n - m) 场景下删除的第一个数的序号是 (m - 1) % n，
         那么 f(n - 1, m) 场景将使用被删除数字的下一个数，即序号 m % n 作为它的 0 序号。
@@ -43,6 +53,7 @@ class Solution:
         if n == 0:
             return 0
         x = self.f(n - 1, m)
+        # return (m % n + x) % n
         return (m + x) % n
 
 
