@@ -44,6 +44,9 @@ class CQueue_method_1:
             return -1
 
 class CQueue_method_2:
+    '''
+    执行用时： 336 ms , 在所有 Python3 提交中击败了 84.00% 的用户 内存消耗： 19.1 MB , 在所有 Python3 提交中击败了 28.11% 的用户
+    '''
     def __init__(self):
         self.A, self.B = [], []
 
