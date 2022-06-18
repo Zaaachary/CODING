@@ -10,33 +10,26 @@
 from typing import List
 
 class Solution:
-    def minSubArrayLen(self, s: int, nums: List[int]) -> int:
-        # 64ms  37.49%用户
-        if len(nums) > 1:
-            min_len = len(nums)+1
-            slow, fast = 0, 0  # slow子串首 fast子串尾巴 初始状态仅一个元素
-            nsum = nums[0]
-            while slow <= fast:
-                if nsum < s:
-                    fast += 1
-                    if fast < len(nums):
-                        nsum += nums[fast]
-                    else:
-                        # fast已经outofindex
-                        break
-                elif nsum >= s:
-                    min_len = min(min_len, fast-slow+1)
-                    nsum -= nums[slow]
-                    slow += 1
-            if min_len <= len(nums):
-                return min_len
-            else:
-                return 0
-        elif sum(nums) >= s:
-            return 1
-        else:
-            # 不存在满足条件的子数组
+    '''
+    执行用时： 40 ms , 在所有 Python3 提交中击败了 91.96% 的用户 内存消耗： 16.8 MB , 在所有 Python3 提交中击败了 60.46% 的用户
+    '''
+    def minSubArrayLen(self, target: int, nums: List[int]) -> int:
+        min_len = len(nums) + 1
+        
+        left, current_sum = 0, 0
+        for right, cur_num in enumerate(nums):
+            current_sum += cur_num
+            while current_sum >= target:
+                # print(left, right)
+                min_len = min(min_len, right-left+1)
+                current_sum -= nums[left]
+                left += 1
+
+        if min_len == len(nums) + 1:
             return 0
+        else:
+            return min_len
+        
     
     def minSubArrayLen2(self, s:int, nums:List[int]) -> int:
         # 解析  无需判断len(nums)>1  56ms
