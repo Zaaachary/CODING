@@ -72,7 +72,7 @@ class Solution1:
     @staticmethod
     def post_traverse_find(root, target):
         node_stack = []
-        last_visit = ''
+        last_visit = None
         while root:
             node_stack.append(root)
             root = root.left
