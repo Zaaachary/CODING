@@ -85,7 +85,7 @@ class Solution1:
                 return node_stack
 
             if node.right and last_visit != node.right:
-                # 有右孩子，且左孩子刚被访问
+                # 有右孩子，且未被访问
                 node = node.right
                 while node:
                     # 右孩子及其左孩子链入栈
