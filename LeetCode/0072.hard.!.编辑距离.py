@@ -5,6 +5,11 @@
 @Author  :   Zhifeng Li
 @Contact :   li_zaaachary@163.com
 @Desc    :   
+
+在单词 A 中插入一个字符；
+在单词 B 中插入一个字符；
+修改单词 A 的一个字符。
+
 '''
 
 class Solution:
@@ -24,14 +29,37 @@ class Solution:
 
         for i in range(1, m+1):
             for j in range(1, n+1):
-                j_1 = dp_matrix[i][j-1]
-                i_1 = dp_matrix[i-1][j]
-                ij_1 = dp_matrix[i-1][j-1]
+                j_1 = dp_matrix[i][j-1]     # 字符1 <-> 字符2[:-1] 编辑距离，接下来可做插入
+                i_1 = dp_matrix[i-1][j]     # 字符1[:-1] <-> 字符2 编辑距离，接下来可做插入
+                ij_1 = dp_matrix[i-1][j-1]  # 字符1[:-1] <-> 字符2[:-1] 编辑距离，接下来可做新字符交换
 
                 if word2[j-1] == word1[i-1]:
-                    dp_matrix[i][j] = 1 + min(j_1, i_1, ij_1 - 1)
+                    dp_matrix[i][j] = min(j_1 + 1, i_1 + 1, ij_1)
                 else:
                     dp_matrix[i][j] = 1 + min(j_1, i_1, ij_1)
         
         return dp_matrix[-1][-1]
-                    
+
+from functools import cache
+
+class Solution_memory:
+    '''
+    记忆化搜索
+    执行用时： 756 ms , 在所有 Python3 提交中击败了 5.16% 的用户 内存消耗： 126.1 MB , 在所有 Python3 提交中击败了 5.01% 的用户
+    '''
+    @cache
+    def minDistance(self, word1: str, word2: str) -> int:
+        if word1 == word2:
+            return 0
+        elif not word1:
+            return len(word2)
+        elif not word2:
+            return len(word1)
+        
+        mid_1 = self.minDistance(word1[:-1], word2) 
+        mid_2 = self.minDistance(word1, word2[:-1])
+        mid_3 = self.minDistance(word1[:-1], word2[:-1])
+        if word1[-1] == word2[-1]:
+            return 1 + min(mid_1, mid_2, mid_3 - 1)
+        else:
+            return 1 + min(mid_1, mid_2, mid_3)

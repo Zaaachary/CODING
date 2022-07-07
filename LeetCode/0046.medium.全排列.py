@@ -14,6 +14,36 @@ from typing import List
 
 class Solution:
     '''
+    更标准的回溯写法
+    20220705   执行用时： 40 ms , 在所有 Python3 提交中击败了 60.60% 的用户 内存消耗： 15.1 MB , 在所有 Python3 提交中击败了 65.42% 的用户
+    '''
+    def permute(self, nums: List[int]) -> List[List[int]]:
+        if not nums:
+            return []
+        
+        self.result = []
+        self.path = []
+        self.visited = [False] * len(nums)
+
+        self.backtracing(nums, 0)
+
+        return self.result
+
+    def backtracing(self, nums, place_idx):
+        if place_idx == len(nums):
+            self.result.append(self.path)
+        else:
+            for i in range(len(nums)):
+                if not self.visited[i]:
+                    self.path.append(nums[i])
+                    self.visited[i] = True
+                    self.backtracing(nums, place_idx + 1)
+                    self.visited[i] = False
+                    self.path.pop()
+
+
+class Solution_0222:
+    '''
     20220222 DFS   36ms  64.71%
     '''
     def permute(self, nums: List[int]) -> List[List[int]]:
