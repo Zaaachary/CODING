@@ -12,9 +12,8 @@
 
 ### 1.1 栈与队列
 
-- JZOF 09 easy 用两个栈实现队列
-- JZOF 30 easy ! 包含min函数的栈；维护辅助栈；假设主栈内元素单调增，将打破单调增且不大于最小栈top的元素存入最小栈
-- 0739.medium.!.每日温度 （单调栈）
+详见 [stack&queue](Note/stack_queue_note.md)
+
 
 ### 1.2 链表
 
@@ -126,20 +125,6 @@
 
 后续内容更新在 Note 的 dp 中
 
-- 0005.medium.!!.最长回文子串 TODO
-- 0045.medium.跳跃游戏 II; 贪心算法，和dp思路接近但是不许咬存储空间；动态规划，dp存放每个位置的元素最少需要多少步
-- 0055.medium.跳跃游戏
-- 0062.medium.不同路径; 动态规划
-- 0070 easy 爬楼梯
-- 0072.hard.!.编辑距离
-- 0091.medium.解码方法
-- 0120 medium ！三角形最小路径和
-- 0139.medium.单词拆分
-- 0198.medium.!.打家劫舍
-- 0213.medium.打家劫舍II
-- 0300.medium.!.最长递增子序列
-- 0413.medium.!.等差数列个数  滑窗 -> 动规
-
 ### 2.7 分治法
 
 - 0240.medium.搜索二维矩阵II.py
@@ -156,6 +141,16 @@
 - 最大公约数GCD TODO
 
 ### TODO
+
+34. 在排序数组中查找元素的第一个和最后一个位置
+求平方根，兑换零钱
+https://leetcode.cn/problems/sqrtx/submissions/
+【管理员】金志凌-18052443793(635725626) 2022/7/14 19:58:07
+https://leetcode.cn/problems/ti-huan-kong-ge-lcof/
+
+【管理员】金志凌-18052443793(635725626) 2022/7/14 19:58:29
+https://leetcode.cn/problems/coin-change/
+
 
 - 0913 hard; 动态规划 & 博弈; 未做出
 - 0139.medium.单词拆分  dp方法

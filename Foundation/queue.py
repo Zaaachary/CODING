@@ -3,17 +3,21 @@
 在 Python 中，可以使用以下几种方法实现队列
 
 collections包里的deque，对应操作
+
 pop()从尾取出
 appendleft() 从头插入
+
 queue包中的queue，对应操作
 put() 插入
 get() 取出
+
 直接使用list，只要保证只使用
 pop() 取出
 insert(0,) 插入
 或者只使用
 append() 插入
 list[0]并且del list[0] 取出
+
 两者使用list方法的不同就区别于你把哪个当头，哪个当尾
 三种方法各有优劣。
 
