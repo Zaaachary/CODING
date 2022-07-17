@@ -25,7 +25,7 @@ class Solution:
                 return True
             return s[i - 1] == p[j - 1]
 
-        dp = [[False] * (n+1) for _ in range(m + 1)]
+        dp = [[False] * (n+1) for _ in range(m + 1)]    # dp[i][j] 表示 p[0~j] 是否与 s[0~i] 匹配
         dp[0][0] = True
         print(dp)
 

@@ -143,15 +143,6 @@
 ### TODO
 
 34. 在排序数组中查找元素的第一个和最后一个位置
-求平方根，兑换零钱
-https://leetcode.cn/problems/sqrtx/submissions/
-【管理员】金志凌-18052443793(635725626) 2022/7/14 19:58:07
-https://leetcode.cn/problems/ti-huan-kong-ge-lcof/
-
-【管理员】金志凌-18052443793(635725626) 2022/7/14 19:58:29
-https://leetcode.cn/problems/coin-change/
-
-
 - 0913 hard; 动态规划 & 博弈; 未做出
 - 0139.medium.单词拆分  dp方法
 
@@ -167,3 +158,5 @@ https://leetcode.cn/problems/coin-change/
 1. itertools
     - combinations  组合
     - permutations  排列
+2. functools
+    - cache; @cache 用于记忆化搜索

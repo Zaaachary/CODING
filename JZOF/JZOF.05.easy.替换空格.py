@@ -11,15 +11,6 @@
 
 class Solution:
     def replaceSpace(self, s: str) -> str:
-        string_list = list(s)
-        for index in range(len(s)-1, -1, -1):
-            if string_list[index] == ' ':
-                string_list[index] = "%20"
-        return ''.join(string_list)
-            
-
-class Solution:
-    def replaceSpace(self, s: str) -> str:
         tes = ''
         for i in s:
             if i == ' ':
